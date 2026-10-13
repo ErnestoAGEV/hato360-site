@@ -32,7 +32,7 @@
 
   --font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
   --font-display: "Bricolage Grotesque", "Atkinson Hyperlegible", sans-serif;
-  --font-sign: "Alfa Slab One", Georgia, serif;
+  --font-sign: "Alfa Slab One", Georgia, serif; /* solo el titular de hato360.app; el portal no la usa */
 
   --motion-fast: 150ms;
   --motion-base: 200ms;

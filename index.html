@@ -70,7 +70,7 @@
           <h3 class="titulo">Tu ganado al día</h3>
           <p>Cada animal con su arete, su historia y dónde anda. Lo encuentras en segundos, con la vaca enfrente.</p>
         </div>
-        <div class="escena ficha-mini" aria-label="Ejemplo de la ficha de un animal">
+        <div class="escena ficha-mini" role="group" aria-label="Ejemplo de la ficha de un animal">
           <header><span class="placa">V-7</span><div><b>Brahman · Hembra</b><span>Arete oficial <span class="nw">MX-0215 1753</span></span></div></header>
           <dl>
             <dt>Vacuna</dt><dd>12 oct 2026</dd>
@@ -85,7 +85,7 @@
           <h3 class="titulo">Funciona sin señal</h3>
           <p>Anota en el potrero más lejano. Todo se queda en tu teléfono y se envía solo cuando vuelve la señal.</p>
         </div>
-        <div class="escena sin-senal" aria-label="Ejemplo: registros guardados sin señal que se envían después">
+        <div class="escena sin-senal" role="group" aria-label="Ejemplo: registros guardados sin señal que se envían después">
           <ol>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5.5 12.3a10 10 0 0 1 13 0M9 15.8a5 5 0 0 1 6 0M12 19.5h.01M3 3l18 18"/></svg>Sin señal en el potrero<span class="cuenta" data-cuenta>3 guardados</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01M2 9a15 15 0 0 1 20 0"/></svg>De regreso, vuelve la señal</li>
@@ -99,7 +99,7 @@
           <h3 class="titulo">Todo el equipo en el mismo rancho</h3>
           <p>Cada quien en su teléfono, todos viendo el mismo ganado. Lo que uno registra, los demás lo ven.</p>
         </div>
-        <div class="escena equipo" aria-label="Ejemplo: tres teléfonos con el mismo registro">
+        <div class="escena equipo" role="img" aria-label="Ejemplo: tres teléfonos con el mismo registro">
           <svg class="cuerda" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path data-cuerda d="M0 22c30-10 55 8 80 0s50-12 75-2 45 10 70 1 50-9 75 2" fill="none" stroke="var(--tag)" stroke-width="5" stroke-linecap="round"/></svg>
           <div class="mini"><span class="placa">V-7</span><small>Vacuna<br>12 oct</small></div>
           <div class="mini"><span class="placa">V-7</span><small>Vacuna<br>12 oct</small></div>
@@ -160,8 +160,9 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
             { duration: 0.75, delay: stagger(0.14), ease: ease });
   // El teléfono se asienta contra la barda y sube un poco al hacer scroll.
   const tel = document.querySelector("[data-telefono]");
-  animate(tel, { y: [24, 0] }, { duration: 0.9, delay: 0.35, ease: ease });
-  scroll(animate(tel, { y: [0, -48] }, { ease: "linear" }), { target: document.querySelector(".barda"), offset: ["start start", "end start"] });
+  // Primero se asienta contra la barda; ya asentado, el parallax ligero del scroll (≤ 24 px).
+  animate(tel, { y: [24, 0] }, { duration: 0.9, delay: 0.35, ease: ease }).finished.then(() =>
+    scroll(animate(tel, { y: [0, -24] }, { ease: "linear" }), { target: document.querySelector(".barda"), offset: ["start start", "end start"] }));
   // Sin señal: el envío se confirma al entrar en pantalla.
   inView("[data-listo]", function (el) {
     animate(el, { scale: [0.96, 1] }, { duration: 0.5, ease: ease });

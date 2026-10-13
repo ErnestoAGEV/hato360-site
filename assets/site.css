@@ -84,7 +84,7 @@ img, svg { display: block; }
 .ficha-mini { display: grid; gap: var(--space-4); }
 .ficha-mini header { display: flex; align-items: center; gap: var(--space-4); }
 .ficha-mini .placa { font-size: 1.6rem; min-width: 84px; padding: 10px 14px 12px; }
-.sin-senal .cuenta, .sin-senal .cuenta, .nw { white-space: nowrap; }
+.sin-senal .cuenta, .nw { white-space: nowrap; }
 .ficha-mini header b { display: block; font-size: 1.2rem; }
 .ficha-mini header span { color: var(--text-muted); }
 .ficha-mini dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--space-2) var(--space-5); border-top: 1px solid var(--divider); padding-top: var(--space-4); }
@@ -109,7 +109,7 @@ img, svg { display: block; }
 .oficina { background: var(--text); color: var(--bg); padding-block: clamp(72px, 10vw, 128px); }
 .oficina .wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
 .oficina h2 { margin: 0; font-size: clamp(2rem, 4.4vw, 3.3rem); }
-.oficina p { margin: var(--space-4) 0 var(--space-6); max-width: 34ch; color: #D9D2C3; font-size: 1.2rem; }
+.oficina p { margin: var(--space-4) 0 var(--space-6); max-width: 34ch; color: var(--divider); font-size: 1.2rem; }
 .boton {
   position: relative; display: inline-flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: 0 var(--space-6);
   background: var(--bg); color: var(--text); border-radius: var(--radius-m); font-weight: 700; font-size: 1.2rem; text-decoration: none;
